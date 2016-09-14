@@ -392,12 +392,6 @@ char * strdup (char *instr);
 #  define CPLIsInf(x) (!_isnan(x) && !_finite(x))
 #  define CPLIsFinite(x) _finite(x)
 #else
-#  if defined (__GNUC__) && (__GNUC__ > 4) && (__cplusplus)
-#    include <cmath>
-using std::isnan;
-#  else
-#    include <math.h>
-#  endif
 #  define CPLIsNan(x) isnan(x)
 #  ifdef isinf 
 #    define CPLIsInf(x) isinf(x)
